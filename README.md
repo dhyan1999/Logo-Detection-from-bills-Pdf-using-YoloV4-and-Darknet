@@ -53,15 +53,21 @@ Key Features:
 
 - [Python](https://www.python.org/ "Python") Installed
 
-- Python Basics Understanding
+- Advance Python Understanding
+
+- Tensor-flow and Keras Installed
+
+- Understanding of labelImg and Darknet
 
 - Understanding of Machine Learning and Deep Learning libraries
 
-- Concepts of Natural Langauge Processing
+- OpenCV Library Installed
+
+- Computer Vision Basic Understanding
 
 ## Data-Set
 
-![dataset](img/dataset.png)
+- Collection of minimum 50-60 pdf of same company and number of companies depend upon your need
 
 ## 👨🏻‍💻 Implementation of Code
 
