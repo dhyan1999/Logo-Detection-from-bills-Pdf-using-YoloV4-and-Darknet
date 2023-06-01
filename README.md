@@ -5,7 +5,21 @@
 <h1 align="center"> Logo Detection from bills(pdf) using YoloV4 and DarkNet </h1>
 
 ![uni](img/uni.jpeg)
-Abstract : <p > Social media and microblogging apps allow people to share their information and express their personal view-points extensively and immediately. However, it also has some negative aspects such as hate speech. Recent advances in Natural Language Processing and Artificial Intelligence allow for more accurate detection of hate speech in textual streams. A significant challenge in this domain is that, while the presence of hate speech can be detrimental to the quality of service provided by social platforms, it still constitutes only a tiny fraction of the content available online, which can lead to performance deterioration due to majority class overfitting. To this end, we propose various data augmentation techniques with the goal of reducing class imbalance and maximizing the amount of information we can extract from our limited resources. After that, we apply them on a selection of top-performing deep architectures and hate speech datasets in order to classify them. The proposed approach outperforms all other considered algorithms. It achieves 0.69 F1-score for hate/non-hate classification</p>
+Abstract : <p > This project aims to develop a logo detection system that can accurately detect and localize logos from bills of telecommunication companies using the Darknet framework and YOLOv4 (You Only Look Once) algorithm. The system will leverage state-of-the-art object detection techniques to automate the process of logo detection from telecommunication bills, making it faster and more efficient.
+
+Key Features:
+
+- Data Collection and Preparation: A dataset of telecommunication bills with annotated logo regions will be collected or created. The dataset will be carefully curated and annotated to provide accurate training data for the logo detection model.
+
+- Darknet Framework: The Darknet framework, a popular open-source deep learning framework, will be utilized as the foundation for implementing the logo detection system. Darknet provides a flexible and efficient platform for training and deploying deep neural networks.
+
+- YOLOv4 Model: YOLOv4, a state-of-the-art real-time object detection algorithm, will be employed to detect and localize logos within the telecommunication bills. YOLOv4 offers superior accuracy and speed compared to other object detection algorithms.
+
+- Model Training: The YOLOv4 model will be trained on the annotated dataset to learn the visual features and patterns associated with telecommunication company logos. The training process will involve optimizing the network's parameters to achieve high accuracy in logo detection.
+
+- Logo Recognition: Once the logos are detected and localized, the system will include an additional component for logo recognition. This step may involve employing a separate classifier or implementing a recognition algorithm to identify and associate each logo with the corresponding telecommunication company.
+
+- Evaluation and Fine-tuning: The trained logo detection model will be evaluated using appropriate evaluation metrics to assess its performance. Fine-tuning techniques may be employed to further improve the accuracy and robustness of the system.</p>
 
 <h2 align="center">🌐 Links 🌐</h2>
 <p align="center">
