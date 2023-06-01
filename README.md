@@ -4,9 +4,8 @@
 </p>
 <h1 align="center"> Logo Detection from bills(pdf) using YoloV4 and DarkNet </h1>
 
-<div style="width:100%">
-![uni](img/canadian-logo.jpeg)
-</div>
+![uni](img/canadian-logo.jpeg | width = 700)
+
 Abstract : <p > This project aims to develop a logo detection system that can accurately detect and localize logos from bills of telecommunication companies using the Darknet framework and YOLOv4 (You Only Look Once) algorithm. The system will leverage state-of-the-art object detection techniques to automate the process of logo detection from telecommunication bills, making it faster and more efficient.
 
 Key Features:
