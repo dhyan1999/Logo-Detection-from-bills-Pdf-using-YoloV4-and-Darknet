@@ -2,7 +2,7 @@
   <a href="https://github.com/dhyan1999/Hate_Speech_Detection" title="Hate Speech Detection">
   </a>
 </p>
-<h1 align="center"> A Comparative study of Data-Augmentation Techniques for Imbalanced Hate speech data </h1>
+<h1 align="center"> Logo Detection from bills(pdf) using YoloV4 and DarkNet </h1>
 
 ![uni](img/uni.jpeg)
 Abstract : <p > Social media and microblogging apps allow people to share their information and express their personal view-points extensively and immediately. However, it also has some negative aspects such as hate speech. Recent advances in Natural Language Processing and Artificial Intelligence allow for more accurate detection of hate speech in textual streams. A significant challenge in this domain is that, while the presence of hate speech can be detrimental to the quality of service provided by social platforms, it still constitutes only a tiny fraction of the content available online, which can lead to performance deterioration due to majority class overfitting. To this end, we propose various data augmentation techniques with the goal of reducing class imbalance and maximizing the amount of information we can extract from our limited resources. After that, we apply them on a selection of top-performing deep architectures and hate speech datasets in order to classify them. The proposed approach outperforms all other considered algorithms. It achieves 0.69 F1-score for hate/non-hate classification</p>
