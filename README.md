@@ -120,6 +120,17 @@ labelimg
 
 ![labelimg_scotia](img/labelimg_scotia.jpeg)
 
+- You will get a classes.txt file after labeling all the images of dataset
+
+##  Important topics used in the Project
+
+Darknet
+
+- Darknet is an open-source neural network framework known for implementing the YOLO algorithm. It enables efficient training and deployment of deep neural networks for object detection tasks, such as logo detection. Darknet's flexibility allows customization of network architectures and training configurations. It supports real-time processing and offers tools for data augmentation. By using Darknet with YOLOv4, the logo detection system achieves accurate and efficient detection and localization of telecommunication company logos from bills.
+
+YoloV4
+
+- YOLOv4 pretrained weights are pre-learned parameters of a YOLOv4 model. They capture the knowledge gained from training on a large dataset, including logo detection. These weights serve as a starting point for fine-tuning or transfer learning. By utilizing pretrained weights, developers can accelerate the training process and benefit from the model's ability to detect logos and other objects. Fine-tuning on specific data further refines the model's performance for logo detection on telecommunication bills.
 ## 👨🏻‍💻 Implementation of Code
 
 BERT Contextual Embedding
