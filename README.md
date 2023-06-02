@@ -73,7 +73,7 @@ Key Features:
 - Here i have used my Scoiabank, Fido and Virgin bills (eg show below)
 
 ![labelimg_virgin](img/labelimg_virgin.jpeg)
-![labelimg_scotia2](img/labelimg_scotia2.png)
+![labelimg_scotia2](img/labelimg_scotia2.jpeg)
 
 **🎇 You are Ready to Go!**
 
@@ -118,7 +118,7 @@ labelimg
 
 - Load all the images from the directory and mark all the images by their respective classes
 
-![labelimg_scotia](img/labelimg_scotia.png)
+![labelimg_scotia](img/labelimg_scotia.jpeg)
 
 ## 👨🏻‍💻 Implementation of Code
 
