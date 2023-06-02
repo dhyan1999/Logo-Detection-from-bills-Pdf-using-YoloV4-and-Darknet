@@ -73,6 +73,7 @@ Key Features:
 - Here i have used my Scoiabank, Fido and Virgin bills (eg show below)
 
 ![labelimg_virgin](img/labelimg_virgin.jpeg)
+![labelimg_scotia2](img/labelimg_scotia2.png)
 
 **🎇 You are Ready to Go!**
 
@@ -111,9 +112,13 @@ sudo pip3 install labelimg
 labelimg
 ```
 
+![labelimg](img/labelimg.png)
+
 - Step2
 
-![labelimg](img/labelimg.png)
+- Load all the images from the directory and mark all the images by their respective classes
+
+![labelimg_scotia](img/labelimg_scotia.png)
 
 ## 👨🏻‍💻 Implementation of Code
 
