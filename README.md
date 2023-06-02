@@ -150,9 +150,6 @@ import re
 ```
 
 ```py
-```
-
-```py
 #utility function
 def imShow(path):
   import cv2
@@ -271,17 +268,9 @@ imShow('predictions.jpg')
 
 ## Results
 
-![tb1](img/tb1.png)
-
-![tb2](img/tb2.png)
-
-The original dataset has only 12.01% of hate speech data. However, We increased the minority class until the threshold point (50%), using Bert contextual embeddings. The Fig.12 represents the graphical representation of the classification report.
-
-<div>
-    <a href="https://plotly.com/~dhyan1999/1/" target="_blank" title="Final Bert Augmentation Output" style="display: block; text-align: center;"><img src="https://plotly.com/~dhyan1999/1.png" alt="Final Bert Augmentation Output" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plotly.com/404.png';" /></a>
-</div>
-
-According to our research comparing various model types, word embedding techniques, and augmentation approaches, we have come to the conclusion that augmentation is a critical element of an unbalanced dataset to get a better F1 score. BERT contextual embedding is highly helpful for text augmentation in our scenario since it doesn’t alter the sentence’s main idea; rather, it only adds supporting words. Our tests reveal that the combination of TD-IDF + BERT Contextual Embedding + Random Forest provides the greatest F1-Score, Recall, and accuracy.
+![fido_out](img/fido_out.jpeg)
+![virgin_out](img/virgin_out.jpeg)
+![scotia_out](img/scotia_out.jpeg)
 
 ## 🧑🏻 Author
 
