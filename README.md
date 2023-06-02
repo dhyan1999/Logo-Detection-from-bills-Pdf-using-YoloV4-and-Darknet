@@ -70,6 +70,10 @@ Key Features:
 
 - Collection of minimum 50-60 pdf of same company and number of companies depend upon your need
 
+- Here i have used my Scoiabank, Fido and Virgin bills (eg show below)
+
+![labelimg_virgin](img/labelimg_virgin.jpeg)
+
 **🎇 You are Ready to Go!**
 
 ## ❗ Installation of Important Libraries
@@ -106,6 +110,8 @@ sudo pip3 install labelimg
 ```Bash
 labelimg
 ```
+
+- Step2
 
 ![labelimg](img/labelimg.png)
 
