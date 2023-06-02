@@ -131,35 +131,142 @@ Darknet
 YoloV4
 
 - YOLOv4 pretrained weights are pre-learned parameters of a YOLOv4 model. They capture the knowledge gained from training on a large dataset, including logo detection. These weights serve as a starting point for fine-tuning or transfer learning. By utilizing pretrained weights, developers can accelerate the training process and benefit from the model's ability to detect logos and other objects. Fine-tuning on specific data further refines the model's performance for logo detection on telecommunication bills.
+
 ## 👨🏻‍💻 Implementation of Code
 
-BERT Contextual Embedding
-- We assume an invariance that sentences are natural even if the words in the sentences are replaced with other words with paradigmatic relations.
-- At the word places, we stochastically swap out words with others that a bidirectional language model predicts. There are many context-sensitive terms, but they are all acceptable for enhancing the original language
 
 
-![BERTCon](img/BERTCon.png)
 ```py
-import nlpaug.augmenter.word.context_word_embs as aug
-augmenter = aug.ContextualWordEmbsAug(model_path='bert-base-uncased', action="insert")
-def augmentMyData(df, augmenter, repetitions=1, samples=200):
-    augmented_texts = []
-    # select only the minority class samples
-    spam_df = df[df['label'] == 1].reset_index(drop=True) # removes unecessary index column
-    for i in tqdm(np.random.randint(0, len(spam_df), samples)):
-        # generating 'n_samples' augmented texts
-        for _ in range(repetitions):
-            augmented_text = augmenter.augment(str(spam_df['Text'].iloc[i]))
-            augmented_texts.append(augmented_text)
-    
-    data = {
-        'label': 1,
-        'Text': augmented_texts
-    }
-    aug_df = pd.DataFrame(data)
-    df = shuffle(df.append(aug_df).reset_index(drop=True))
-    return df
+%%capture
+!git clone https://github.com/AlexeyAB/darknet.git
+%cd darknet
+import re
+!sed -i 's/OPENCV=0/OPENCV=1/' Makefile
+!sed -i 's/GPU=0/GPU=1/' Makefile
+!sed -i 's/CUDNN=0/CUDNN=1/' Makefile
+!sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile
+!make
+!chmod +x ./darknet
 ```
+
+```py
+```
+
+```py
+#utility function
+def imShow(path):
+  import cv2
+  import matplotlib.pyplot as plt
+  %matplotlib inline
+
+  image = cv2.imread(path)
+  height, width = image.shape[:2]
+  resized_image = cv2.resize(image,(3*width, 3*height), interpolation = cv2.INTER_CUBIC)
+
+  fig = plt.gcf()
+  fig.set_size_inches(18, 10)
+  plt.axis("off")
+  #plt.rcParams['figure.figsize'] = [10, 5]
+  plt.imshow(cv2.cvtColor(resized_image, cv2.COLOR_BGR2RGB))
+  plt.show()
+  
+```
+
+```py
+repo_url = 'https://github.com/GotG/yolotinyv3_medmask_demo'
+import os
+%cd /content
+repo_dir_path = os.path.abspath(os.path.join('.', os.path.basename(repo_url)))
+!git clone {repo_url}
+%cd {repo_dir_path}
+```
+
+```py
+labels_path = '/content/yolotinyv3_medmask_demo/obj.names'
+#make a list of your labels
+labels = ['fido','Scotia','Virgin']
+with open(labels_path, 'w') as f:
+
+    f.write('\n'.join(labels))
+
+#check that the labels file is correct
+!cat /content/yolotinyv3_medmask_demo/obj.names
+```
+
+```py
+import re
+objdata = '/content/yolotinyv3_medmask_demo/obj.data'
+with open(objdata) as f:
+    s = f.read()
+
+#the number of classes is equal to the number of labels
+num_classes = len(labels)   
+s = re.sub('classes= \d*','classes = ' + str(num_classes),s)
+with open(objdata, 'w') as f:
+  f.write(s)
+!cat /content/yolotinyv3_medmask_demo/obj.data
+```
+
+```py
+%cd ../yolotinyv3_medmask_demo/
+%cd /content/yolotinyv3_medmask_demo/obj
+%rm *
+%cd /content/darknet
+%rm *
+```
+
+```py
+# set the number of max_batches - min 2000 per class:
+max_batch=2500
+# calculate the 2 steps values:
+step1 = 0.4 * max_batch
+step2 = 0.7 * max_batch
+step3 = 0.9 * max_batch
+#subdivisions define the minibatch size: minibatch = batch/subdivisions
+#we set subdivisions to 4. if using larger resolutions, may have to increase
+#the this number to 8 16 or even 32. default resolution is 416x416
+subdivisions = 4
+
+
+# we also need to adjust the number of classes and a parameter called filter size 
+# that are both is inside the model structure
+
+# num_classes = len(labels)
+num_filters = (num_classes + 5) * 3
+
+cfg_file = '/content/yolotinyv3_medmask_demo/yolov4-tiny.cfg'
+
+with open(cfg_file) as f:
+    s = f.read()
+# (re.sub('[a-z]*@', 'ABC@', s))
+s = re.sub('subdivisions=\d*','subdivisions='+str(subdivisions),s)
+s = re.sub('max_batches = \d*','max_batches = '+str(max_batch),s)
+s = re.sub('steps=\d*,\d*','steps='+"{:.0f}".format(step1)+','+"{:.0f}".format(step2)+','+"{:.0f}".format(step3),s)
+s = re.sub('classes=\d*','classes='+str(num_classes),s)
+s = re.sub('pad=1\nfilters=\d*','pad=1\nfilters='+"{:.0f}".format(num_filters),s)
+# pad=1\nfilters=\d\d
+# s = re.sub('CUDNN=0','CUDNN=1',s)
+# s = re.sub('OPENCV=0','OPENCV=1',s)
+
+with open(cfg_file, 'w') as f:
+  # s = re.sub('GPU=0','GPU=1',s)
+  f.write(s)
+
+```
+
+```py
+!./darknet detector train /content/yolotinyv3_medmask_demo/obj.data /content/yolotinyv3_medmask_demo/yolov4-tiny.cfg /content/yolotinyv3_medmask_demo/yolov4-tiny.conv.29 -dont_show -ext_output -map
+```
+
+```py
+!./darknet detector map /content/yolotinyv3_medmask_demo/obj.data /content/yolotinyv3_medmask_demo/yolov4-tiny.cfg "/content/darknet/backup/yolov4-tiny_best.weights" -points 0
+```
+
+```py
+!./darknet detector test /content/yolotinyv3_medmask_demo/obj.data  /content/yolotinyv3_medmask_demo/yolov4-tiny.cfg  "/content/darknet/backup/yolov4-tiny_best.weights" /content/yolotinyv3_medmask_demo/obj/fido_1.jpg -ext_output
+imShow('predictions.jpg')
+```
+
 
 
 ## Results
