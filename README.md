@@ -70,6 +70,45 @@ Key Features:
 
 - Collection of minimum 50-60 pdf of same company and number of companies depend upon your need
 
+**🎇 You are Ready to Go!**
+
+## ❗ Installation of Important Libraries
+
+Before running the .ipynb file we need to import some of the libraries using terminal 
+
+In the Anaconda Terminal, you can run:
+
+```Bash
+pip install opencv-python
+```
+
+For installing TKinter (If it shows the error that Tkinter is not installed)
+
+```Bash
+pip install python-tk
+```
+
+## Installation of labelImg
+
+- LabelImg - LabelImg is a free, open source tool for graphically labeling images. It’s written in Python and uses QT for its graphical interface. It’s an easy, free way to label a few hundred images 
+
+- Open Anaconda Terminal and write run command
+
+```Bash
+sudo pip3 install labelimg
+```
+
+
+## Use of labelImg in the project 
+
+- Step1 - Write the command labelImg in the Anaconda Terminal which will open a window as shown below.
+
+```Bash
+labelimg
+```
+
+![labelimg](img/labelimg.png)
+
 ## 👨🏻‍💻 Implementation of Code
 
 BERT Contextual Embedding
